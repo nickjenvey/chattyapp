@@ -1,14 +1,13 @@
 body {
-  background: white;
-  color: black;
+  background: #f0f4f7;
+  color: #a9adb0;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   margin: 70px 0;
 }
 
 .chatbar {
-  background: tomato;
-  border-top: 1px solid black;
+  background: #131f6b;
   bottom: 0;
   display: flex;
   left: 0;
@@ -19,12 +18,24 @@ body {
 
 .chatbar-message,
 .chatbar-username {
-  border: 1px solid black;
+  border: {
+    top: none;
+    left: none;
+    right: none;
+    bottom: 2px solid #4e5992;
+  }
+  background: transparent;
   display: block;
   height: 40px;
   line-height: 40px;
-  margin: 5px;
-  padding: 0 9px;
+  margin: 10px 20px;
+  padding: 0 10px;
+  color: #fff;
+  outline: none;
+
+  &:focus {
+    border-bottom: 2px solid #e36222;
+  }
 }
 
 .chatbar-message {
@@ -35,9 +46,15 @@ body {
   flex: 2;
 }
 
-.message {
+.messages {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.message,
+.notification {
   display: flex;
-  padding: 5px;
+  padding: 15px;
 }
 
 .message.system {
@@ -52,28 +69,58 @@ body {
   padding: 0 10px;
 }
 
-.message-content {
-  flex: 8;
+.message {
+  .message-content {
+    flex: 9;
+    background: #fff;
+    border-radius: 0 20px 20px 20px;
+    padding: 20px;
+  }
+
+  .message-username {
+    flex: 1;
+    text-align: right;
+    font-weight: 700;
+    color: #e36222;
+    margin-top: 10px;
+    min-width: 84px;
+  }
 }
 
-.message-username {
-  flex: 2;
-  font-weight: 700;
+.notification {
+  .message-content {
+    flex: 9;
+    background: #e36222;
+    color: #fff;
+    border-radius: 0 20px 0 20px;
+    padding: 20px;
+  }
+
+  .message-username {
+    flex: 1;
+    text-align: right;
+    font-weight: 700;
+    color: #e36222;
+    margin-top: 10px;
+    min-width: 84px;
+  }
 }
 
 .navbar {
-  background: tomato;
-  border-bottom: 1px solid black;
+  background: #fff;;
   height: 60px;
   left: 0;
   padding: 0 10px;
   position: fixed;
   right: 0;
   top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-brand {
-  color: inherit;
+  color: #131f6b;
   display: block;
   float: left;
   font-weight: 700;
@@ -82,4 +129,12 @@ body {
   line-height: 60px;
   padding: 0 10px;
   text-decoration: none;
+
+  &:hover {
+    color: #e36222;
+  }
+}
+
+.navbar-users {
+  padding: 0 10px;
 }
