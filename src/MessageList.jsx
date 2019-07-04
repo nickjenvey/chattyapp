@@ -7,6 +7,7 @@ class MessageList extends Component {
       return (
         <Message
           type={message.type}
+          color={message.color}
           key={message.id}
           username={message.username}
           content={message.content} />

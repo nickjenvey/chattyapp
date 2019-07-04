@@ -8,7 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: 0,
+      color: "",
+      numberOfUsers: 0,
       messages: []
     };
   }
@@ -29,14 +30,20 @@ class App extends Component {
           this.addMessage(data);
           break;
         
-        case "numberOfUsers":
-          this.numberOfUsers(data.users);
+        case "users":
+          this.numberOfUsers(data.numberOfUsers);
+          this.userColor(data.color);
+          break;
       }
     }
   }
 
-  numberOfUsers = (users) => {
-    this.setState({ users: users });
+  userColor = (color) => {
+    this.setState({ color: color });
+  }
+  
+  numberOfUsers = (numberOfUsers) => {
+    this.setState({ numberOfUsers: numberOfUsers });
   }
 
   addMessage = (message) => {
@@ -45,6 +52,7 @@ class App extends Component {
   }
 
   submitMessage = (message) => {
+    message.color = this.state.color;
     ws.send(JSON.stringify(message));
   }
 
@@ -61,7 +69,6 @@ class App extends Component {
       oldName = "Anonymous";
     };
 
-    
     const notification = {
       type: "postNotification",
       content: `${oldName} changed their name to ${newName}`
@@ -75,7 +82,7 @@ class App extends Component {
       <div>
         <nav className="navbar">
           <a href="/" className="navbar-brand">Chatty</a>
-          <span className="navbar-users">{this.state.users} users online</span>
+          <span className="navbar-users">{this.state.numberOfUsers} users online</span>
         </nav>
         <MessageList messages={this.state.messages} />
         <ChatBar submitMessage={this.submitMessage} submitNotification={this.submitNotification} />
