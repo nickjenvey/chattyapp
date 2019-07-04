@@ -2,15 +2,15 @@ Chatty
 =====================
 A very (very) simple chat server with web client interface.
 
-## Using Chatty
+### Using Chatty
 Using two terminal panels `cd` into both the chattyapp directory and the chatty_server folder, then run `npm start` for both. The app will be served at http://localhost:3000/.
 
-## Getting Started
+### Getting Started
 1. Fork this repository, then clone your fork of this repository.
 2. Install client dependencies using the `npm install` command within the chattyapp directory.
 3. `cd` into the chatty_server folder and install the server dependencies
 
-## Dependencies
+### Dependencies
 - babel-core
 - babel-loader
 - babel-preset-es2015
@@ -28,3 +28,7 @@ Using two terminal panels `cd` into both the chattyapp directory and the chatty_
 - ws
 - randomcolor
 - uuid
+
+## Screenshots
+!["Chatty chatroom"](https://github.com/nickjenvey/chattyapp/blob/master/docs/chatty1.png)
+!["Chatty chatroom 2"](https://github.com/nickjenvey/chattyapp/blob/master/docs/chatty2.png)
